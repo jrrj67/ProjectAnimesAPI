@@ -1,0 +1,25 @@
+﻿version: '3.4'
+services:
+  api:
+    container_name: "api"
+    build:
+      context: .
+      dockerfile: Development.Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    volumes:
+      - ./:/src
+    ports:
+      - "5001:5001"
+    depends_on:
+      - sqlserver
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password_01
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./Docker/db/mssql/data:/var/opt/mssql/data
