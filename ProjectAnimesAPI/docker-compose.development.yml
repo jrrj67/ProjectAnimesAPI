@@ -2,6 +2,7 @@
 services:
   api:
     container_name: "api"
+    user: root
     build:
       context: .
       dockerfile: Development.Dockerfile
@@ -16,6 +17,7 @@ services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server
     container_name: sqlserver
+    user: root
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Password_01

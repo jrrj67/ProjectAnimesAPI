@@ -36,4 +36,8 @@
       <Content Remove="Data\Mappings\AnimeMapping\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Docker" />
+    </ItemGroup>
+
 </Project>

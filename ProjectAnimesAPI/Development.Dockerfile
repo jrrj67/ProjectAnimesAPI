@@ -8,4 +8,6 @@ RUN dotnet restore "ProjectAnimesAPI.csproj"
 COPY . .
 WORKDIR "/src"
 RUN dotnet dev-certs https
-ENTRYPOINT dotnet watch run  --urls=https://+:5001 --project ProjectAnimesAPI.csproj
+ENV PATH="$PATH:/root/.dotnet/tools"
+RUN dotnet tool install --global dotnet-ef
+ENTRYPOINT dotnet ef database update && dotnet watch run --no-build --urls=https://+:5001 --project ProjectAnimesAPI.csproj
