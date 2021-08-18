@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using FluentValidation;
 using ProjectAnimesAPI.Models;
 
@@ -25,21 +26,22 @@ namespace ProjectAnimesAPI.Data
             if (!validator.IsValid)
             {
                 var exception = new Exception("Validation errors.");
-                exception.Data["Errors"] = validator.Errors;
+                var errorsList = validator.Errors.Select(e => e.ErrorMessage);
+                exception.Data["Errors"] = errorsList;
                 throw exception;
             }
         }   
     }
 
-    public class ExceptionResponse
+    public static class ExceptionResponse
     {
-        private readonly string Message;
-        private readonly object Errors;
-
-        public ExceptionResponse(string message, object errors = null)
+        public static object Response(string message, object errors = null)
         {
-            Message = message;
-            Errors = errors;
+            return new 
+            {
+                Message = message,
+                Errors = errors,
+            };
         }
     }
 }

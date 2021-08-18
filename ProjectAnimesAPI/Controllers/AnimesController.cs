@@ -42,7 +42,7 @@ namespace ProjectAnimesAPI.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(new ExceptionResponse(e.Message, e.Data["Errors"]));
+                return BadRequest(ExceptionResponse.Response(e.Message, e.Data["Errors"]));
             }
         }
         
@@ -61,11 +61,11 @@ namespace ProjectAnimesAPI.Controllers
             }
             catch (NotFoundException e)
             {
-                return NotFound(new ExceptionResponse(e.Message));
+                return NotFound(ExceptionResponse.Response(e.Message);
             }
             catch (Exception e)
             {
-                return BadRequest(new ExceptionResponse(e.Message, e.Data["Errors"]));
+                return BadRequest(ExceptionResponse.Response(e.Message, e.Data["Errors"]));
             }
         }
         
@@ -79,11 +79,11 @@ namespace ProjectAnimesAPI.Controllers
             }
             catch (NotFoundException e)
             {
-                return NotFound(new ExceptionResponse(e.Message));
+                return NotFound(ExceptionResponse.Response(e.Message));
             }
             catch (Exception e)
             {
-                return BadRequest(new ExceptionResponse(e.Message, e.Data["Errors"]));
+                return BadRequest(ExceptionResponse.Response(e.Message, e.Data["Errors"]));
             }
         }
         
@@ -97,11 +97,11 @@ namespace ProjectAnimesAPI.Controllers
             }
             catch (NotFoundException e)
             {
-                return NotFound(e.Message);
+                return NotFound(ExceptionResponse.Response(e.Message));
             }
             catch (Exception e)
             {
-                return BadRequest(new ExceptionResponse(e.Message, e.Data["Errors"]));
+                return BadRequest(ExceptionResponse.Response(e.Message, e.Data["Errors"]));
             }
         }
     }
