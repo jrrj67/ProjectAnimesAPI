@@ -26,22 +26,22 @@
 
     <ItemGroup>
       <Compile Remove="Data\Mappings\AnimeMapping\**" />
+      <Compile Remove="Docker\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="Data\Mappings\AnimeMapping\**" />
+      <EmbeddedResource Remove="Docker\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Data\Mappings\AnimeMapping\**" />
+      <None Remove="Docker\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Remove="Data\Mappings\AnimeMapping\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Docker" />
+      <Content Remove="Docker\**" />
     </ItemGroup>
 
 </Project>

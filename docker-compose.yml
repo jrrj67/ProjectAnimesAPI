@@ -8,6 +8,15 @@ services:
       dockerfile: ProjectAnimesAPI/Dockerfile
     environment:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.dotnet/tools
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    volumes:
+      - ./ProjectAnimesAPI:/src
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    ports:
+      - "80:80"
+      - "443:443"
     depends_on:
       - sqlserver
   sqlserver:
