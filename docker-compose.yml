@@ -1,17 +1,13 @@
-﻿version: '3.4'
+version: '3.4'
+
 services:
-  api:
-    container_name: "api"
-    user: root
+  projectanimesapi:
+    container_name: api
     build:
       context: .
-      dockerfile: Development.Dockerfile
+      dockerfile: ProjectAnimesAPI/Dockerfile
     environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-    volumes:
-      - ./:/src
-    ports:
-      - "5001:5001"
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.dotnet/tools
     depends_on:
       - sqlserver
   sqlserver:
