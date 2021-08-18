@@ -61,7 +61,7 @@ namespace ProjectAnimesAPI.Controllers
             }
             catch (NotFoundException e)
             {
-                return NotFound(ExceptionResponse.Response(e.Message);
+                return NotFound(ExceptionResponse.Response(e.Message));
             }
             catch (Exception e)
             {
