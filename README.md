@@ -8,4 +8,5 @@ API built with .NET 5.
 Run the commands bellow respectively:
 
 ### Development environment
-    - docker-compose -f ./docker-compose.development.yml up --build -d
+    - docker-compose up --build -d
+    - docker exec -t api bash "-c" "cd ./src && dotnet ef database update"
